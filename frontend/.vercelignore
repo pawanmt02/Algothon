@@ -1,0 +1,7 @@
+# Exclude backend and heavy files from frontend build
+../backend/
+../venv/
+.next/
+node_modules/
+*.mp4
+*.mov

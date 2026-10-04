@@ -1,0 +1,15 @@
+# Exclude backend and virtual environments from Vercel deployment bundle
+backend/
+venv/
+.venv/
+__pycache__/
+*.pt
+*.bin
+*.onnx
+*.safetensors
+*.h5
+*.mp4
+*.mov
+uploads/
+tmp/
+.git/

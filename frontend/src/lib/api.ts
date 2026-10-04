@@ -1,7 +1,16 @@
 import axios from 'axios';
 import type { AnalysisResult, AnalysisStatus, UploadResponse, LoginResponse } from './types';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+const getApiBase = () => {
+  if (typeof window === 'undefined') {
+    return process.env.BACKEND_URL || process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+  }
+  return process.env.NEXT_PUBLIC_API_URL !== undefined
+    ? process.env.NEXT_PUBLIC_API_URL
+    : (process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8000');
+};
+
+const API_BASE = getApiBase();
 
 const axiosInstance = axios.create({
   baseURL: API_BASE,

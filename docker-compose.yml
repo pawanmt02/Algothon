@@ -1,0 +1,41 @@
+version: '3.9'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: finradar-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - FINRADAR_JWT_SECRET=finradar-algothon-2026-super-secret
+      - FINRADAR_JWT_EXPIRE_MINUTES=60
+      - DEBUG=true
+      - ALLOWED_ORIGINS=http://localhost:3000
+    volumes:
+      - ./backend:/app
+      - finradar-tmp:/tmp/finradar
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.frontend
+    container_name: finradar-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+      - NEXT_PUBLIC_APP_NAME=FinRadar AI
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  finradar-tmp:

@@ -1,0 +1,37 @@
+{
+  "name": "finradar-ai",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "^15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "framer-motion": "^11.12.0",
+    "@tabler/icons-react": "^3.21.0",
+    "recharts": "^2.13.0",
+    "axios": "^1.7.7",
+    "react-dropzone": "^14.3.5",
+    "react-hot-toast": "^2.4.1",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.5.4",
+    "@radix-ui/react-progress": "^1.1.0",
+    "@radix-ui/react-tabs": "^1.1.1",
+    "@radix-ui/react-tooltip": "^1.1.4",
+    "lucide-react": "^0.460.0",
+    "date-fns": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^5",
+    "tailwindcss": "^3.4.15",
+    "postcss": "^8",
+    "autoprefixer": "^10"
+  }
+}
